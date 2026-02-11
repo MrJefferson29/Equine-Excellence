@@ -29,7 +29,7 @@ const DetailStory = () => {
       setLoading(true);
       var activeUser = {};
       try {
-        const { data } = await axios.get("https://vishis-mauve.vercel.app/auth/private", {
+        const { data } = await axios.get("https://equine-excellence.onrender.com/auth/private", {
           headers: {
             "Content-Type": "application/json",
             authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -43,7 +43,7 @@ const DetailStory = () => {
       }
 
       try {
-        const { data } = await axios.post(`https://vishis-mauve.vercel.app/story/${slug}`, { activeUser });
+        const { data } = await axios.post(`https://equine-excellence.onrender.com/story/${slug}`, { activeUser });
         setStory(data.data);
         setLikeStatus(data.likeStatus);
         setLikeCount(data.data.likeCount);
@@ -96,7 +96,7 @@ const DetailStory = () => {
   const handleDelete = async () => {
     if (window.confirm("Do you want to delete this post")) {
       try {
-        await axios.delete(`https://vishis-mauve.vercel.app/story/${slug}/delete`, {
+        await axios.delete(`https://equine-excellence.onrender.com/story/${slug}/delete`, {
           headers: {
             "Content-Type": "application/json",
             authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -121,7 +121,7 @@ const DetailStory = () => {
   const addStoryToReadList = async () => {
     try {
       const { data } = await axios.post(
-        `https://vishis-mauve.vercel.app/user/${slug}/addStoryToReadList`,
+        `https://equine-excellence.onrender.com/user/${slug}/addStoryToReadList`,
         { activeUser },
         {
           headers: {

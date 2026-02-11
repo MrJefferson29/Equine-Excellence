@@ -31,10 +31,10 @@ export default function HorseDetails() {
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const { data } = await axios.get(`/api/horses/${name}`);
+        const { data } = await axios.get(`https://equine-excellence.onrender.com/api/horses/${name}`);
         setHorse(data);
 
-        const allRes = await axios.get("/api/horses");
+        const allRes = await axios.get("https://equine-excellence.onrender.com/api/horses");
         const all = allRes.data || [];
         const related = all.filter(
           (h) => h.category === data.category && h.name !== data.name

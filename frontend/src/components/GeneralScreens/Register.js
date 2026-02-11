@@ -17,7 +17,7 @@ const Register = () => {
     const password = e.target.password.value;
 
     try {
-      const { data } = await api.post("/auth/register", {
+      const { data } = await api.post("https://equine-excellence.onrender.com/auth/register", {
         name,
         email,
         password,

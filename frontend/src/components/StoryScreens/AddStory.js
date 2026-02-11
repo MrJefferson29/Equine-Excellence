@@ -48,7 +48,7 @@ const AddStory = () => {
     formdata.append("receiver", receiver)
 
     try {
-      const { data } = await axios.post("https://vishis-mauve.vercel.app/story/addstory", formdata, config);
+      const { data } = await axios.post("https://equine-excellence.onrender.com/story/addstory", formdata, config);
       setSuccess("Chi Posted Succesfully, GOOD JOB!");
 
       clearInputs();
