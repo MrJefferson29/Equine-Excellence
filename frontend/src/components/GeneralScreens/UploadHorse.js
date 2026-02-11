@@ -14,6 +14,7 @@ const UploadHorse = () => {
     sex: "",
     age: "",
     price: "",
+    saleType: "",
     certificate: "",
     description: "",
   });
@@ -133,6 +134,22 @@ const UploadHorse = () => {
               onChange={handleChange}
               placeholder="e.g. 5 Years"
             />
+          </div>
+
+          <div className="field">
+            <label htmlFor="saleType">Sale Type</label>
+            <select
+              id="saleType"
+              name="saleType"
+              required
+              value={form.saleType}
+              onChange={handleChange}
+            >
+              <option value="">Select type</option>
+              <option value="free">Free</option>
+              <option value="for_sale">For Sale</option>
+              <option value="adoption">For Adoption</option>
+            </select>
           </div>
 
           <div className="field">

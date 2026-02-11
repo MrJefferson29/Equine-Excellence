@@ -49,6 +49,18 @@ export default function HorseDetails() {
     fetchDetails();
   }, [name]);
 
+  const getSaleTypeLabel = (saleType) => {
+    switch (saleType) {
+      case "free":
+        return "Free";
+      case "adoption":
+        return "For Adoption";
+      case "for_sale":
+      default:
+        return "For Sale";
+    }
+  };
+
   const handleEmailClick = () => {
     const email = "equineexcellence.help@gmail.com";
     const subject = `Inquiry: ${horse.name}`;
@@ -99,8 +111,8 @@ export default function HorseDetails() {
               <span>{horse.age}</span>
             </div>
             <div className="spec-tile">
-              <label>Health</label>
-              <span>Vetted</span>
+              <label>Sale Type</label>
+              <span>{getSaleTypeLabel(horse.saleType)}</span>
             </div>
             <div className="spec-tile">
               <label>Status</label>

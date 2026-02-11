@@ -37,6 +37,18 @@ export default function AllHorses() {
 
   const categories = ['All', ...new Set(allHorses.map(h => h.category))];
 
+  const getSaleTypeLabel = (saleType) => {
+    switch (saleType) {
+      case "free":
+        return "Free";
+      case "adoption":
+        return "For Adoption";
+      case "for_sale":
+      default:
+        return "For Sale";
+    }
+  };
+
   const applyFilters = (term, selectedCategory, source) => {
     const filtered = (source || []).filter(horse => {
       const matchesSearch = horse.name.toLowerCase().includes(term.toLowerCase()) || 
@@ -109,7 +121,7 @@ export default function AllHorses() {
               <div className="spec-grid">
                 <div className="spec-item"><span>Sex:</span> {horse.sex}</div>
                 <div className="spec-item"><span>Age:</span> {horse.age}</div>
-                <div className="spec-item"><span>Status:</span> Verified</div>
+                <div className="spec-item"><span>Sale:</span> {getSaleTypeLabel(horse.saleType)}</div>
                 <div className="spec-item"><span>Health:</span> Vaccinated</div>
               </div>
 

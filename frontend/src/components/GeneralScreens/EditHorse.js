@@ -15,6 +15,7 @@ const EditHorse = () => {
     sex: "",
     age: "",
     price: "",
+    saleType: "",
     certificate: "",
     description: "",
     views: "",
@@ -35,6 +36,7 @@ const EditHorse = () => {
           sex: data.sex || "",
           age: data.age || "",
           price: data.price || "",
+          saleType: data.saleType || "for_sale",
           certificate: data.certificate || "",
           description: data.description || "",
           views: data.views ?? "",
@@ -77,7 +79,7 @@ const EditHorse = () => {
         fd.append("images", file);
       });
 
-      const { data } = await api.put(`https://equine-excellence.onrender.com/horses/${slugParam}`, fd, {
+        const { data } = await api.put(`https://equine-excellence.onrender.com/horses/${slugParam}`, fd, {
         headers: {
           "Content-Type": "multipart/form-data",
           authorization: `Bearer ${token || localStorage.getItem("authToken")}`,
@@ -150,15 +152,41 @@ const EditHorse = () => {
           </div>
         </div>
 
-        <div className="grid-2">
-            <div className="field">
-                <label>Pedigree Certificate</label>
-                <input name="certificate" type="text" value={form.certificate} onChange={handleChange} />
-            </div>
-            <div className="field">
-                <label><FiBarChart2 /> Manual View Count</label>
-                <input name="views" type="number" min="0" value={form.views} onChange={handleChange} />
-            </div>
+        <div className="grid-3">
+          <div className="field">
+            <label>Sale Type</label>
+            <select
+              name="saleType"
+              required
+              value={form.saleType}
+              onChange={handleChange}
+            >
+              <option value="for_sale">For Sale</option>
+              <option value="free">Free</option>
+              <option value="adoption">For Adoption</option>
+            </select>
+          </div>
+          <div className="field">
+            <label>Pedigree Certificate</label>
+            <input
+              name="certificate"
+              type="text"
+              value={form.certificate}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="field">
+            <label>
+              <FiBarChart2 /> Manual View Count
+            </label>
+            <input
+              name="views"
+              type="number"
+              min="0"
+              value={form.views}
+              onChange={handleChange}
+            />
+          </div>
         </div>
 
         <div className="field">

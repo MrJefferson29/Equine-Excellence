@@ -66,6 +66,7 @@ router.post("/", auth, upload.array("images", 6), async (req, res) => {
       age,
       views,
       price,
+      saleType,
       certificate,
       description
     } = req.body;
@@ -93,6 +94,7 @@ router.post("/", auth, upload.array("images", 6), async (req, res) => {
       age,
       views: views ? Number(views) : 0,
       price,
+      saleType: saleType || "for_sale",
       certificate,
       description,
       images: imageUrls
@@ -116,6 +118,7 @@ router.put("/:slug", auth, upload.array("images", 6), async (req, res) => {
       age,
       views,
       price,
+      saleType,
       certificate,
       description
     } = req.body;
@@ -132,6 +135,7 @@ router.put("/:slug", auth, upload.array("images", 6), async (req, res) => {
     if (age) horse.age = age;
     if (typeof views !== "undefined") horse.views = Number(views);
     if (price) horse.price = price;
+    if (saleType) horse.saleType = saleType;
     if (typeof certificate !== "undefined") horse.certificate = certificate;
     if (typeof description !== "undefined") horse.description = description;
 

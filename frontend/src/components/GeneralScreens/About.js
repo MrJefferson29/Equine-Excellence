@@ -178,6 +178,19 @@ const Footer = styled.footer`
 `;
 
 const About = () => {
+
+  const handleInquire= () => {
+    const CONTACT_EMAIL = 'equineexcellence.help@gmail.com';
+    const body = [
+      'REGISTRY INQUIRY - Equine Excellence',
+      'Dear EE team, I have the following inquiries to make',
+      'Message:',
+    ].join('\n');
+
+    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Registry Inquiry - Equine Excellence')}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+  };
+
   return (
     <Container>
       <HeroSection>
@@ -246,7 +259,7 @@ const About = () => {
       <CTA>
         <h2>Find Your Next Champion</h2>
         <p>Private viewings are available by appointment at our estate.</p>
-        <button>Inquire Today</button>
+        <button onClick={handleInquire}>Inquire Today</button>
       </CTA>
 
       <Footer>

@@ -9,6 +9,12 @@ const horseSchema = new mongoose.Schema(
     age: { type: String, required: true },
     views: { type: Number, default: 0 },
     price: { type: String, required: true },
+    // free | for_sale | adoption
+    saleType: {
+      type: String,
+      enum: ["free", "for_sale", "adoption"],
+      default: "for_sale",
+    },
     certificate: { type: String, default: "" },
     description: { type: String, default: "" },
     images: [{ type: String, required: true }]

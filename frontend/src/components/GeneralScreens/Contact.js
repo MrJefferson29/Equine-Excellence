@@ -102,9 +102,10 @@ const Contact = () => {
               <label>Primary Interest</label>
               <select onChange={(e) => setForm({...form, interestType: e.target.value})}>
                 <option value="">Select Interest</option>
-                <option value="Adoption">Elite Adoption</option>
-                <option value="Urgent">At-Risk Rescue</option>
-                <option value="Training">Training Services</option>
+                <option value="Help">Customer Help</option>
+                <option value="Personal">Personal Question</option>
+                <option value="Delivery">Delivery Inquiry</option>
+                <option value="Other">Other</option>
               </select>
               {errors.interestType && <span className="error">{errors.interestType}</span>}
             </div>
