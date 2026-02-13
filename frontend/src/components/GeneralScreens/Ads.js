@@ -11,7 +11,7 @@ export default function Ads() {
   useEffect(() => {
     const fetchRecommended = async () => {
       try {
-        const { data } = await axios.get('/horses', {
+        const { data } = await axios.get('https://equine-excellence.onrender.com/api/horses', {
           params: { limit: 6 },
         });
         setHorses(data);
