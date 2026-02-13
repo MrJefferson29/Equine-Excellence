@@ -29,7 +29,7 @@ const EditHorse = () => {
   useEffect(() => {
     const fetchHorse = async () => {
       try {
-        const { data } = await api.get(`https://equine-excellence.onrender.com/horses/${slugParam}`);
+        const { data } = await api.get(`/horses/${slugParam}`);
         setForm({
           name: data.name || "",
           category: data.category || "",
@@ -79,7 +79,7 @@ const EditHorse = () => {
         fd.append("images", file);
       });
 
-        const { data } = await api.put(`https://equine-excellence.onrender.com/horses/${slugParam}`, fd, {
+        const { data } = await api.put(`/horses/${slugParam}`, fd, {
         headers: {
           "Content-Type": "multipart/form-data",
           authorization: `Bearer ${token || localStorage.getItem("authToken")}`,
