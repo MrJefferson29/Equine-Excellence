@@ -45,7 +45,7 @@ const UploadHorse = () => {
         fd.append("images", file);
       });
 
-      const { data } = await api.post("https://equine-excellence.onrender.com/horses", fd, {
+      const { data } = await api.post("/horses", fd, {
         headers: {
           "Content-Type": "multipart/form-data",
           authorization: `Bearer ${token || localStorage.getItem("authToken")}`,
