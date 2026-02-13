@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Express backend for Shih Tzu (horses) app with auth and Cloudinary uploads",
   "main": "server.js",
+  "license": "MIT",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "dev": "nodemon server.js"
   },
   "dependencies": {

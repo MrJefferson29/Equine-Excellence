@@ -25,6 +25,19 @@ app.use(morgan("dev"));
 app.use("/api/auth", authRoutes);
 app.use("/api/horses", horseRoutes);
 
+// Root route
+app.get("/", (req, res) => {
+  res.json({ 
+    message: "Equine Excellence API", 
+    version: "1.0.0",
+    endpoints: {
+      health: "/api/health",
+      auth: "/api/auth",
+      horses: "/api/horses"
+    }
+  });
+});
+
 // Health check
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok" });
