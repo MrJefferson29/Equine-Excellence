@@ -93,7 +93,7 @@ export default function HorseDetails() {
   const handleEmailClick = () => {
     const email = "equineexcellence.help@gmail.com";
     const subject = `Inquiry: ${horse.name}`;
-    const body = `I am interested in learning more about ${horse.name}. Please provide pedigree details and viewing availability.`;
+    const body = `Hello, I am reaching out regarding ${horse.name} and would like more information about your purchase process. Please provide details on your delivery services, estimated transportation cost, and pickup options. I would also appreciate information on your payment structure, accepted methods, and the steps required to reserve the horse. I am located in [city, state], and I look forward to your response and the next steps`;
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
