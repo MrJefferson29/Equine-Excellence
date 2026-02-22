@@ -119,10 +119,8 @@ export default function Delivery() {
             
             <div className="payment-grid">
               <span>Zelle</span>
-              <span>Cash App</span>
               <span>Apple Pay</span>
               <span>Chime</span>
-              <span>PayPal</span>
               <span>Google Pay</span>
               <span>Bank Wire</span>
             </div>
